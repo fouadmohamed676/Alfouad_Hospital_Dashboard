@@ -18,6 +18,7 @@ class StaffController extends Controller
 
         $data=Staff::with('ampolnce')->get();
         return view('staff.show',compact('data'));
+
     }
     public function create(){
         $genders=Gender::with('gender')->get();

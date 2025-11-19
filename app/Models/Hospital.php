@@ -10,7 +10,7 @@ class Hospital extends Model
 {
     use HasFactory;
     protected $table="hospital";
-    protected $fillable=['id','dis','address','specialization_id','local_id','phone','status'];
+    protected $fillable=['id','dis','address','specialization_id','local_id','phone','status','created_at','updated_at'];
     public $timestamps=false;
     protected $hidden=['pivot','specialization_id'];
 

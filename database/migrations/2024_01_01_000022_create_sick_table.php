@@ -11,7 +11,7 @@ return new class extends Migration {
         Schema::create('sick', function (Blueprint $table) {
             $table->integer('id')->primaryKey()->autoIncrement();
             $table->string('name', 100);
-            $table->timestamp('created_at')->default(DB::raw('current_timestamp()'));
+             $table->timestamps();
         });
     }
 

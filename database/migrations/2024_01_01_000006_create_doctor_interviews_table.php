@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->string('day', 50);
             $table->string('from_time', 50);
             $table->string('to_time', 50);
+            $table->timestamps();
 
             // علاقات
             // $table->foreign('doctor_id')->references('id')->on('docotrs');

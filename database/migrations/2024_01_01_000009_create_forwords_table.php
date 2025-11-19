@@ -9,8 +9,9 @@ return new class extends Migration {
     {
         Schema::create('forwords', function (Blueprint $table) {
 
-            $table->integer('id')->primaryKey()->autoIncrement(); 
+            $table->integer('id')->primaryKey()->autoIncrement();
             $table->string('name', 200);
+            $table->timestamps();
         });
     }
 

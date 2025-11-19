@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->string('model', 100);
             $table->string('number', 100);
             $table->string('status', 100);
+            $table->timestamps();
             // العلاقات
             // $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
         });

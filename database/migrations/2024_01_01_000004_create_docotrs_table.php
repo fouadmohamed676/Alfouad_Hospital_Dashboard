@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('price_interview', 100)->default('15000');
             $table->unsignedInteger('nationality_id')->default(1);
             $table->integer('status')->default(1);
+            $table->timestamps();
 
             // العلاقات
             // $table->foreign('local_id')->references('id')->on('local');

@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->string('phone', 100);
             $table->integer('status')->default(1);
             $table->string('time_work', 100);
+            $table->timestamps();
         });
     }
 

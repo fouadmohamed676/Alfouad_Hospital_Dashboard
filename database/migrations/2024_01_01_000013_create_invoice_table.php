@@ -12,9 +12,7 @@ return new class extends Migration {
             $table->integer('id')->primaryKey()->autoIncrement();
             $table->integer('interview_id');
             $table->integer('is_deleted')->default(0);
-            $table->timestamp('created_at')->default(DB::raw('current_timestamp()'));
-            $table->timestamp('updated_at')->default(DB::raw('current_timestamp()'))->useCurrentOnUpdate();
-
+            $table->timestamps();
             // FK
             // $table->foreign('interview_id')->references('id')->on('doctor_interviews')->onDelete('cascade');
         });

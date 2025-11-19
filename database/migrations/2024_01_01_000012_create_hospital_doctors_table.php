@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->integer('id')->primaryKey()->autoIncrement();
             $table->unsignedInteger('doctor_id');
             $table->unsignedInteger('hospital_id');
-
+            $table->timestamps();
             // علاقات
             // $table->foreign('doctor_id')->references('id')->on('docotrs')->onDelete('cascade');
             // $table->foreign('hospital_id')->references('id')->on('hospital')->onDelete('cascade');

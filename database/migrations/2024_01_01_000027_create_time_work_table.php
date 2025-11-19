@@ -8,8 +8,9 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('time_work', function (Blueprint $table) {
-            $table->integer('id')->primaryKey()->autoIncrement(); 
+            $table->integer('id')->primaryKey()->autoIncrement();
             $table->string('name', 100);
+            $table->timestamps();
         });
     }
 

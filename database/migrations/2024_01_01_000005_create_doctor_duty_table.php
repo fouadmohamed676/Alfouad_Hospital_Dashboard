@@ -13,7 +13,8 @@ return new class extends Migration {
             $table->integer('id')->primaryKey()->autoIncrement();
             $table->unsignedInteger('doctor_id');
             $table->unsignedInteger('time_id');
-            $table->timestamp('created_at')->default(DB::raw('current_timestamp()'));
+
+            $table->timestamps();
 
             // FK
             // $table->foreign('doctor_id')->references('id')->on('docotrs')->onDelete('cascade');

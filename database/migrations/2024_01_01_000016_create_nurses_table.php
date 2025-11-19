@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('email', 100);
             $table->string('phone', 60);
             $table->integer('nationality_id')->default(1);
-            $table->tinyInteger('gender_id');
+            $table->tinyInteger('gender_id')->unsigned()->default(1);
             $table->string('title', 50);
             $table->integer('status')->default(1);
             $table->integer('hospital_id')->unsigned()->nullable();

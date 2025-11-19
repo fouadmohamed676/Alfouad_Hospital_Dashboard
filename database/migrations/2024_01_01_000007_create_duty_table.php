@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->integer('id')->primaryKey()->autoIncrement();
             $table->string('started', 100);
             $table->string('end', 100);
+            $table->timestamps();
         });
     }
 

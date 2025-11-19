@@ -8,8 +8,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('nationality', function (Blueprint $table) {
-            $table->integer('id')->primaryKey()->autoIncrement(); 
+            $table->integer('id')->primaryKey()->autoIncrement();
             $table->string('name', 10);
+            $table->timestamps();
         });
     }
 
