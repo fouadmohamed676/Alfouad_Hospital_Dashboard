@@ -9,7 +9,7 @@ class Clinck extends Model
 {
     use HasFactory;
     protected $table="clinics";
-    protected $fillable=['id','name','phone','local_id'];
+    protected $fillable=['id','name','phone','local_id','created_at','updated_at'];
     public $timestamps=false;
     public function clinck(){
         return $this->belongsTo(Doctor::class,'clinic_id');

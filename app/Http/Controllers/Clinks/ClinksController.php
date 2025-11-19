@@ -6,9 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Clinck;
 use App\Models\Local;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-use function PHPUnit\Framework\returnSelf;
 
 class ClinksController extends Controller
 {

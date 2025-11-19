@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
+use App\Models\CarAmpolance;
 use Illuminate\Http\Request;
-use App\Models\Doctor;
-use App\Models\Hospital;
-use App\Models\NationalityDoctor;
-use App\Models\SpecializationDoctor;
 use App\Models\Pharamcy;
 use App\Models\Staff;
 use App\Models\Gender;
@@ -15,10 +12,11 @@ use App\Models\Staff_Pharmacy;
 
 class StaffController extends Controller
 {
+    // Pharmacy
 
     public function show(){
 
-        $data=Staff::all();
+        $data=Staff::with('ampolnce')->get();
         return view('staff.show',compact('data'));
     }
     public function create(){
@@ -29,6 +27,11 @@ class StaffController extends Controller
     }
     public function pharmaces($id){
         $staff=Staff_Pharmacy::with('pharmacy')->where('staff_id',$id)->get();
+        return view('staff.staffs',compact('staff'));
+    }
+    public function car($id){
+        $car=CarAmpolance::where('staff_id',$id)->get();
+        return $car;
         return view('staff.staffs',compact('staff'));
     }
     public function save(Request $request){

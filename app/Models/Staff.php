@@ -10,7 +10,7 @@ class Staff extends Model
     use HasFactory;
     protected $table="staff";
 
-    protected $fillable=['id','name','title','email','phone','status'];
+    protected $fillable=['id','name','title','email','phone','status','created_at','updated_at'];
     public $timestamps=true;
     protected $hidden=['pivot','created_at','updated_at','is_deleted'];
 
@@ -28,6 +28,9 @@ class Staff extends Model
     }
     public function pharamcyes(){
         return $this->belongsToMany(Pharamcy::class,'staff_pharmacy','staff_id','pharmacy_id','id','id');
-        
+
+    }
+    public function ampolnce(){
+        return $this->hasOne(CarAmpolance::class,'staff_id','id');
     }
 }

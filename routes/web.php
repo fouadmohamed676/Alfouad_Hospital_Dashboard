@@ -67,7 +67,7 @@ Route::get('/', function () {
         Route::get('/staff_pharmacy_/{id}', [PharamcyController::class, 'show_staff_']);
         Route::get('/update/{id}', [PharamcyController::class, 'update']);
         Route::get('/save_update/{id}', [PharamcyController::class, 'edit']);
-            
+
         Route::post('/staff_pharm', [PharamcyController::class, 'staff_pharm'])->name('pharmacy.staff_pharm');
         Route::get('/pharm_staff', [PharamcyController::class, 'pharmacy_staff'])->name('pharmacy.pharmacy_staff');
         // many to many Relation
@@ -82,6 +82,12 @@ Route::get('/', function () {
         Route::get('/pharmaces/{id}', [StaffController::class, 'pharmaces']);
         Route::get('/delete/{id}', [StaffController::class , 'destroy'])->name('staff.delete');
         Route::put('/save_update/{id}', [StaffController::class, 'edit']);
+
+        // cars
+        Route::get('/car/{id}', [StaffController::class, 'car'])->name('staff.car');
+
+
+
     });
     Route::group(['prefix' => 'sick'], function(){
         Route::get('/show', [SickController::class, 'show'])->name('sick.show');
