@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Forword extends Model
+class Transfers extends Model
 {
     protected $table="forwords";
-    protected $fillable=['id','file_number','pation_id','doctor_id','Splize_hos_from','Splize_hos_to','created_at'];
+    protected $fillable=['id','file_number','Patients_id','doctor_id','Splize_hos_from','Splize_hos_to','created_at'];
     public $timestamps=true;
 
     use HasFactory;
@@ -18,15 +18,15 @@ class Forword extends Model
         return $this->belongsTo(Doctor::class,'doctor_id');
     }
     ############## Day Relation with splize ############
-    public function pation(){
-        return $this->belongsTo(Pation::class,'pation_id');
+    public function patient(){
+        return $this->belongsTo(Patients::class,'pation_id');
     }
     ############## Day Relation with splize ############
-    public function forword_to(){
+    public function transfer_to(){
         return $this->belongsTo(SpecializationHospital::class,'Splize_hos_to');
     }
     ############## Day Relation with splize ############
-    public function forword_from(){
+    public function transfer_from(){
         return $this->belongsTo(SpecializationHospital::class,'Splize_hos_from');
     }
 }

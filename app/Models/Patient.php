@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pation extends Model
+class Patients extends Model
 {
 
     protected $table="pation";
@@ -14,16 +14,16 @@ class Pation extends Model
     protected $hidden=['doctor_id','hospital_id','nationality_id','local_id','sick','status','created_at','updated_at'];
     use HasFactory;
 
-    public function pation(){
-        return $this->belongsTo(Forword::class,'pation_id','id');
+    public function patient(){
+        return $this->belongsTo(Transfers::class,'patient_id','id');
     }
     public function doctor(){
         return $this->belongsTo(Doctor::class,'doctor_id','id');
     }
-    public function hospital_pation(){
+    public function hospital_patient(){
         return $this->belongsTo(Hospital::class,'hospital_id','id');
     }
-    public function nationalit(){
+    public function nationality(){
         return $this->belongsTo(NationalityDoctor::class,'nationality_id','id');
     }
     public function local(){

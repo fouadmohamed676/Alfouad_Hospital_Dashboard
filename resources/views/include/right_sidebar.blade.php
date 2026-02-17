@@ -1,4 +1,5 @@
- <div class="end-bar">
+<!-- Right Sidebar -->
+        <div class="end-bar">
 
             <div class="rightbar-title">
                 <a href="javascript:void(0);" class="end-bar-toggle float-end">
@@ -87,3 +88,4 @@
         </div>
 
         <div class="rightbar-overlay"></div>
+        <!-- /End-bar -->

@@ -14,10 +14,10 @@ class SpecializationDoctor extends Model
     protected $fillable=['id','name'];
     public $timestamps=false;
 
-    public function specilization(){
+    public function specialization(){
         return $this-> hasMany(Doctor::class,'specialization_id','id');
     }
-    
+
 
 
 }

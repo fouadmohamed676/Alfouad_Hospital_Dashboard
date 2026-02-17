@@ -31,7 +31,7 @@
           <label for="name" class="control-label col-lg-2"> <b>الطبيب</b> </label>
           <div class="col-lg-5">
             <select class="form-control" name="doctor_id">
-                @foreach($doctors as $doctor) 	
+                @foreach($doctors as $doctor)
                 <option  value="{{$doctor->id}}">{{$doctor->name}}</option>
                 @endforeach
             </select>
@@ -59,9 +59,3 @@
 
 </section>
 @endsection
-<head>
-    <title>
-       ايام العمل
-    </title>
-
-</head>

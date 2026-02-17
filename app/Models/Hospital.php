@@ -10,28 +10,28 @@ class Hospital extends Model
 {
     use HasFactory;
     protected $table="hospital";
-    protected $fillable=['id','dis','address','specialization_id','local_id','phone','status','created_at','updated_at'];
-    public $timestamps=false;
+    protected $fillable=['id','dis','address','specialization_id','local_id','phone','is_deleted','created_at','updated_at'];
+    public $timestamps=true;
     protected $hidden=['pivot','specialization_id'];
 
 
     public function hospital(){
         return $this-> belongsToMany(Doctor::class,'hospital_doctors');
     }
-    public function local(){
-        return $this-> hasMany(Local::class,'hospital_id','id');
-    }
+    // public function local(){
+    //     return $this-> hasMany(Local::class,'hospital_id','id');
+    // }
     public function nurses(){
         return $this->hasOne(Nurses::class,'hospital_id','id');
     }
-    public function hospitals(){
+    public function Specialization(){
         return $this->belongsTo(SpecializationHospital::class,'specialization_id','id');
     }
-    public function localHospital(){
+    public function local(){
         return $this->belongsTo(Local::class,'local_id');
     }
     public function patoins(){
-        return $this->hasOne(Pation::class,'hospital_id','id');
+        return $this->hasOne(Patients::class,'hospital_id','id');
     }
 
 }

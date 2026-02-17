@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Doctors;
 
 use App\Http\Controllers\Controller;
-use App\Models\Clinck;
+use App\Models\Clink;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Doctors_Duty;
@@ -20,11 +20,10 @@ class DoctorsController extends Controller
 
     public function show(){
         $doctors=Doctor::where('status','1')->get();
-        $specializations=SpecializationDoctor::with('specilization');
-        // $hospital=Hospital::where('status','1')->with('hospital')->get();
-        $national=NationalityDoctor::with('nationality')->get();
-        $clincks=Clinck::with('clinck')->get();
-        $locals=Local::with('locals')->get();
+        $specializations=SpecializationDoctor::all();
+        $national=NationalityDoctor::all();
+        $clinks=Clink::all();
+        $locals=Local::all();
         $count=Doctor::count();
         return view('doctors.show',compact('doctors','count'));
    }
@@ -32,24 +31,24 @@ class DoctorsController extends Controller
 
    public function display($id){
     $doctor=Doctor::find($id);
-    $specializations=SpecializationDoctor::with('specilization');
-    $hospital=Hospital::where('status','1')->with('hospital')->get();
-    $national=NationalityDoctor::with('nationality')->get();
-    $clincks=Clinck::with('clinck')->get();
+    $specializations=SpecializationDoctor::with('specialization')->get();
+    $hospital=Hospital::where('is_deleted','1')->with('hospital')->get();
+    $national=NationalityDoctor::all();
+    $clinks=Clink::with('clink')->get();
     $count=Doctor::count();
     $genders=Gender::with('gender');
     $local=Local::with('locals')->get();
-    return view('doctors.details',compact('doctor','hospital','specializations','national','clincks','count','genders','local'));
+    return view('doctors.details',compact('doctor','hospital','specializations','national','clinks','count','genders','local'));
 }
 
     public function create(){
-        $hospital=Hospital::where('status','1')->with('hospital')->get();
-        $genders=Gender::with('gender')->get();
-        $specializations=SpecializationDoctor::with('specilization')->get();
-        $nationalitys=NationalityDoctor::with('nationality')->get();
-        $clincks=Clinck::with('clinck')->get();
+        $hospitals=Hospital::all();
+        $genders=Gender::all();
+        $specializations=SpecializationDoctor::all();
+        $nationalities=NationalityDoctor::all();
+        $clinks=Clink::all();
         $duty=Time::all();
-        return view('doctors.create',compact('hospital','specializations','nationalitys','genders','clincks','duty'));
+        return view('doctors.create',compact('hospitals','specializations','nationalities','genders','clinks','duty'));
 
     }
 
@@ -66,8 +65,9 @@ class DoctorsController extends Controller
 public function doctor_duty($id){
     $doctors=Doctor::all();
     $times=Time::all();
-    $dutys=Doctors_Duty::with('duty')->where('doctor_id',$id)->get();
-    return view('doctors.doctors',compact('dutys','doctors','times'));
+    $duties=Doctors_Duty::with('duty')->where('doctor_id',$id)->get();
+    return $duties;
+    return view('doctors.doctors',compact('duties','doctors','times'));
 }
 //insert time work to doctors
 public function times_doctors(Request $request){

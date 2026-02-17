@@ -1,24 +1,16 @@
-@extends('include.master')
-@section('content')
-<section id="data-list-view" class="data-list-view-header">
-    <div class="col-lg-3">
-        <div class="alert alert-dismissible" role="alert">
-            <h4 class="alert-dismissible">العدد الكلي</h4>
-            <p class="mb-0">
-                {{ $count }}
-            </p>
-        </div>
-      </div>
-    <div class="table-responsive">
-        <table class="table data-list-view">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th class="product-name">الاسم</th>
-                    {{-- <th class="product-name">المستشفى</th> --}}
-                    <th class="product-name">التخصص</th>
-                    <th class="product-name">العيادة</th>
-                    <th class="product-name">خيارات</th>
+@extends('include.show_data')
+@section('show')
+<div class="tab-pane show active" id="buttons-table-preview">
+    <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                    <th>No: </th>
+                    <th class="product-name">Name</th>
+                    <th class="product-name">E-mail</th>
+                    <th class="product-name">Gender</th>
+                    <th class="product-name">Specialization</th>
+                    <th class="product-name">Clink</th>
+                    <th class="product-name">Options</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,33 +19,30 @@
                 @endif
                 @foreach ($doctors as $index=>$doctor)
                 <tr>
-                  <td></td>
+                  <td>{{ $index+1 }}</td>
                   <td>{{$doctor->name}}</td>
-                  {{-- <td>
-                  {{$doctor->hospital->dis}}
-                </td> --}}
+                  <td>{{$doctor->email}}</td>
+                  <td>{{$doctor->gender->name}}</td>
+                    {{-- <td class="product-name">
+                        @foreach($doctor->hospital as $hospital)
+                        {{$hospital->dis}}
+                        @endforeach
+                    </td> --}}
                   <td class="product-name">
 
-                    {{$doctor->specilization->name}}
+                    {{$doctor->specialization->name}}
                   </td>
-                  <td class="product-name">{{$doctor->clinck->name}}</td>
+                  <td class="product-name">{{$doctor->clink->name}}</td>
                   <td>
-                    <a href="{{'/doctors/details/'.$doctor->id}}"class="btn bg-gradient-info" data-toggle="tooltip" data-placement="top" title="عرض"><i class="fa fa-user"></i></a>
-                    <a href="{{'/doctors/doctor_duty/'.$doctor->id}}" class="btn btn-outline-success" data-dismiss="modal" data-placement="top" title="مواعيد العمل"><i class="fa fa-calendar-check-o"></i></a>
-                    <a href="{{'/doctors/update/'.$doctor->id}}" class="btn bg-gradient-success" data-toggle="tooltip" data-placement="top" title="تعديل"><i class="fa fa-pencil"></i></a>
-                    <a href="{{'/doctors/delete/'.$doctor->id}}" class="btn bg-gradient-danger" data-toggle="tooltip" data-placement="top" title="حذف"><i class="fa fa-trash-o "></i></a>
+                    <a href="{{'/doctors/details/'.$doctor->id}}"class="btn btn-outline-info" data-toggle="tooltip" data-placement="top" title="عرض"><i class="mdi mdi-file"></i></a>
+                    <a href="{{'/doctors/doctor_duty/'.$doctor->id}}" class="btn btn-outline-yahoo" data-dismiss="modal" data-placement="top" title="مواعيد العمل"><i class="mdi mdi-calendar"></i></a>
+                    <a href="{{'/doctors/update/'.$doctor->id}}" class="btn btn-outline-success" data-toggle="tooltip" data-placement="top" title="تعديل"><i class="mdi mdi-square-edit-outline"></i></a>
+                    <a href="{{'/doctors/delete/'.$doctor->id}}" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="حذف"><i class="mdi mdi-trash-can"></i></a>
                   </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
-</section>
+
 
 @endsection
-<head>
-    <title>
-       الاطباء
-    </title>
-
-</head>

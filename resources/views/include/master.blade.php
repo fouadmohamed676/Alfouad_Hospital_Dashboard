@@ -1,24 +1,23 @@
-@include('include.scribt')
-<!-- END: Head-->
-
-<!-- BEGIN: Body-->
-
-    <div class="app-content content">
-        <div class="content-overlay"></div>
-        <div class="header-navbar-shadow"></div>
-        <div class="content-wrapper">
-
-            <div class="content-body">
-            @include('include.messagess')
-            @yield('content')
-
+@include('include.header')
+<div class="content-page">
+    <div class="content">
+        @include('include.navbar')
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12" style="margin-top: 5ex">
+                    <div class="card">
+                        <div class="card-body">
+                                    @yield('content')
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- END: Content-->
-    <div class="sidenav-overlay"></div>
-    <div class="drag-target"></div>
-    <!-- BEGIN: Footer-->
-
-    @include('include.footer')
-    <!-- END: Footer-->
+            <!-- end page title -->
+        </div> <!-- container -->
+    </div> <!-- content -->
+ </div>
+@include('include.footer')
+@include('include.right_sidebar')
+@include('include.scribt')
+</body>
+</html>

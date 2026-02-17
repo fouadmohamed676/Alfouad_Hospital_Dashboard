@@ -1,6 +1,5 @@
-@extends('include.master')
-@section('content')
-<section id="card-actions">
+@extends('include.data')
+@section('data')
     <div class="row">
         <div class="col-8">
             <div class="card">
@@ -68,7 +67,7 @@
                                                 <td>
                                                     <i class="feather icon-chevron-left"></i>
                                                 </td>
-                                                <td>{{$doctor->genders->name}}</td>
+                                                <td>{{$doctor->gender->name}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="font-weight-bold">الايميل</td>
@@ -92,14 +91,14 @@
                                                     <i class="feather icon-chevron-left"></i>
                                                 </td>
 
-                                          <td>{{$doctor->clinck->name}}</td>
+                                          <td>{{$doctor->clink->name}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="font-weight-bold">التخصص</td>
                                                 <td>
                                                     <i class="feather icon-chevron-left"></i>
                                                 </td>
-                                          <td>{{$doctor->specilization->name}}</td>
+                                          <td>{{$doctor->specialization->name}}</td>
                                             </tr>
                                             {{-- <tr>
                                                 <td class="font-weight-bold">المستشفى</td>
@@ -126,18 +125,9 @@
             </div>
         </div>
     </div>
-</section>
 
 <!-- END: Content-->
 
-<div class="sidenav-overlay"></div>
-<div class="drag-target"></div>
-
 
 @endsection
-<head>
-    <title>
-       التفاصيل
-    </title>
 
-</head>

@@ -1,0 +1,68 @@
+@extends('include.master')
+@section('content')
+
+<div class="tab-pane show active" id="typeahead-preview">
+<div class="row">
+    <div class="col-lg-6">
+        <div class="mb-3">
+            <label class="form-label">The Basics</label>
+            <input type="text" class="form-control" data-provide="typeahead" id="the-basics" placeholder="Basic Example">
+        </div>
+    </div> <!-- end col -->
+
+    <div class="col-lg-6 mt-3 mt-lg-0">
+        <div class="mb-3">
+            <label class="form-label">Bloodhound (Suggestion Engine)</label>
+            <input id="bloodhound" class="form-control" type="text" placeholder="States of USA">
+        </div>
+    </div> <!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="mb-3">
+            <label class="form-label">Prefetch</label>
+            <input type="text" class="form-control" data-provide="typeahead" id="prefetch" placeholder="States of USA">
+        </div>
+    </div> <!-- end col -->
+
+    <div class="col-lg-6 mt-3 mt-lg-0">
+        <div class="mb-3">
+            <label class="form-label">Remote</label>
+            <input type="text" class="form-control" data-provide="typeahead" id="remote" placeholder="States of USA">
+        </div>
+    </div> <!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="mb-3">
+            <label class="form-label">Custom Templates</label>
+            <input id="custom-templates" class="form-control" type="text" placeholder="States of USA">
+        </div>
+    </div> <!-- end col -->
+
+    <div class="col-lg-6 mt-3 mt-lg-0">
+        <div class="mb-3">
+            <label class="form-label">Default Suggestions</label>
+            <input type="text" class="form-control" data-provide="typeahead" id="default-suggestions">
+        </div>
+    </div> <!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="mb-0">
+            <label class="form-label">Multiple Datasets</label>
+            <input type="text" class="form-control" data-provide="typeahead" id="multiple-datasets">
+        </div>
+    </div> <!-- end col -->
+</div>
+<!-- end row -->
+</div> <!-- end preview-->
+
+@endsection
+

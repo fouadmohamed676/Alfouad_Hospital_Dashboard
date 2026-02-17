@@ -7,7 +7,7 @@
                 <tr>
                   <th> </th>
                   <th class="hidden-phone">الطبيب</th>
-                  <th class="hidden-phone">التحصص</th>
+                  <th class="hidden-phone">التخصص</th>
                   <th class="hidden-phone">اليوم</th>
                   <th class="hidden-phone">التاريخ</th>
                   <th class="hidden-phone">الخيارات</th>
@@ -49,9 +49,4 @@
 <!-- END: Content-->
 
 @endsection
-<head>
-    <title>
-       المواعيد | اليوم
-    </title>
 
-</head>

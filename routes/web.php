@@ -12,7 +12,7 @@ use App\Http\Controllers\Nurses\NurseController;
 use App\Http\Controllers\Specializations\SpecializationsController;
 use App\Http\Controllers\Time\TimeController;
 use App\Http\Controllers\Duty\DutyController;
-use App\Http\Controllers\Forword\ForwordController;
+use App\Http\Controllers\Forword\TransferController as ForwordController;
 use App\Http\Controllers\Pation\PationController;
 use App\Http\Controllers\Pation\SickController;
 
@@ -145,7 +145,8 @@ Route::get('/', function () {
         Route::post('/save', [TimeController::class, 'save'])->name('time.save');
         Route::get('/update/{id}', [TimeController::class, 'update']);
         Route::put('/save_update/{id}', [TimeController::class, 'edit']);
-        Route::get('/delete/{id}', [TimeController::class , 'destroy'])->name('time.delete');
+        Route::get('/delete/{id}', [TimeController::class , 'delete'])->name('time.delete');
+        Route::get('/restore/{id}', [TimeController::class , 'restore'])->name('time.restore');
     });
     Route::group(['prefix' => 'duty'], function(){
         Route::get('/show', [DutyController::class, 'show'])->name('duty.show');

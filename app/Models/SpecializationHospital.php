@@ -16,10 +16,10 @@ class SpecializationHospital extends Model
         return $this->hasOne(Hospital::class,'specialization_id','id');
     }
     public function Splize_hos_to(){
-        return $this->hasOne(Forword::class,'Splize_hos_to','id');
+        return $this->hasOne(Transfers::class,'Splize_hos_to','id');
     }
     public function Splize_hos_from(){
-        return $this->hasOne(Forword::class,'Splize_hos_from','id');
+        return $this->hasOne(Transfers::class,'Splize_hos_from','id');
     }
 
 }

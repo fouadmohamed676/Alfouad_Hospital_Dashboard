@@ -3,7 +3,7 @@
 namespace App\Models;
 use App\Models\Gender;
 use App\Models\Hospital;
-use App\Models\Clinck;
+use App\Models\Clink;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,29 +25,29 @@ class Doctor extends Model
         return $this->belongsToMany(Time::class,'doctor_duty');
     }
     ############ END MANY TO MANY ############
-    public function specilization(){
+    public function specialization(){
         return $this->belongsTo(SpecializationDoctor::class,'specialization_id','id');
     }
 
     public function national(){
         return $this->belongsTo(NationalityDoctor::class,'nationality_id');
     }
-    public function genders(){
+    public function gender(){
         return $this->belongsTo(Gender::class,'gender_id');
     }
 
-    public function clinck(){
-        return $this->belongsTo(Clinck::class,'clinic_id');
+    public function clink(){
+        return $this->belongsTo(Clink::class,'clinic_id');
     }
     public function locals(){
         return $this->belongsTo(Local::class,'local_id');
     }
 
-    public function forword(){
-        return $this->hasOne(Forword::class,'doctor_id');
+    public function transfers(){
+        return $this->hasOne(Transfers::class,'doctor_id');
     }
     public function pation(){
-        return $this->belongsTo(Pation::class,'pation_id');
+        return $this->belongsTo(Patients::class,'pation_id');
     }
 
     ############ END RELATIONSHIPS ############

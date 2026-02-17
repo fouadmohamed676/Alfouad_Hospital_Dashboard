@@ -13,12 +13,12 @@ use Illuminate\Http\Request;
 class HospitalController extends Controller
 {
     public function show(){
-        $hospital=Hospital::where('is_deleted',0)->get();
-        $count=$hospital->count();
+        $hospitals=Hospital::where('is_deleted',0)->get();
+        $count=$hospitals->count();
         $locals=Local::with('locals')->get();
-        $hospitals=SpecializationHospital::with('specialization')->get();
+        $hospital=SpecializationHospital::with('specialization')->get();
         $specializations=SpecializationHospital::with('specialization')->get();
-        return view('hospital.show',compact('hospitals','count','hospital','specializations','locals'));
+        return view('hospital.show',compact('hospitals','count'));
     }
 
     public function count(){
@@ -62,7 +62,7 @@ class HospitalController extends Controller
         $doctors=Hospital_Doctors::with('doctors')->where('hospital_id',$id)->get();
         return view('hospital.doctors',compact('doctors','hospitals','doctors_'));
     }
-    
+
     public function addDoctors(Request $request){
         // return $request;
             $doctor =Hospital::find($request->hospital_id);
@@ -75,6 +75,6 @@ class HospitalController extends Controller
     public function hospitalDoctor($id){
         $data=Hospital_Doctors::with('doctors')->where('hospital_id',$id)->get();
         return ['response'=>json_decode($data),'status'=>'success'];
-    } 
+    }
 
 }

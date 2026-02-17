@@ -20,8 +20,8 @@ class NationalityDoctor extends Model
         return $this-> hasMany(Nurses::class,'nationality_id','id');
     }
 
-    public function nationalit(){
-        return $this-> hasOne(Pation::class,'nationality_id','id');
+    public function nationality_doctor(){
+        return $this-> hasOne(Patients::class,'nationality_id','id');
     }
 
 

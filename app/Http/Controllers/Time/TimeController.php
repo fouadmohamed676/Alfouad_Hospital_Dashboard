@@ -35,9 +35,15 @@ public function edit(Request $request,Time $id){
    $id->update($request->all());
     return redirect()->route('time.show')->with('status','تم التعديل بنجاح ');
 }
-public function destroy(Time $id){
-$id->delete();
-return redirect()->route('time.show')->with('error','تم الحذف بنجاح..');;
+public function delete(Time $id){
+    $id->is_deleted=0;
+    $id->save();
+    return redirect()->route('time.show')->with('error','تم الحذف بنجاح..');;
+}
+public function restore(Time $id){
+    $id->is_deleted=1;
+    $id->save();
+    return redirect()->route('time.show')->with('status','تم التفعيل بنجاح..');;
 }
 
 }
